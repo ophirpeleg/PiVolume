@@ -48,8 +48,10 @@ while is_on:
         if not longPress:  # short press define
             if mute:
                 os.system(f"amixer -c 0 set Headphone unmute")
+                mute = False
             else:
                 os.system(f"amixer -c 0 set Headphone mute")
+                mute = True
 
     if previousValue != stepPin.value:
         if stepPin.value == False:
