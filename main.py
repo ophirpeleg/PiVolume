@@ -2,9 +2,19 @@ import board
 import digitalio
 import os
 import os.path
+import time
+
+
+def millis():
+    return time.monotonic() * 1000
+
+
+def long_press():
+    print("long press")
+
 
 dirPin = digitalio.DigitalInOut(board.D2)
-pushPin = digitalio.DigitalInOut(board.D8)
+pushPin = digitalio.DigitalInOut(board.D17)
 stepPin = digitalio.DigitalInOut(board.D3)
 
 dirPin.direction = digitalio.Direction.INPUT
@@ -23,8 +33,21 @@ print(f"push pin value: {pushPin.value}")
 is_on = True
 
 while is_on:
-    if pushPin.value == False:
-        print("False")
+    if pushPin.value == 0:
+        pressTime = millis()
+        time.sleep(0.2)
+        longPress = False
+
+        while pushPin.value == 0:
+            if millis() - pressTime > 1000 and not longPress:
+                print("longPress")
+                longPress = True
+                long_press()
+
+        if not longPress:  # short press define
+            print("shortpress")
+
+
 
     if previousValue != stepPin.value:
         if stepPin.value == False:
