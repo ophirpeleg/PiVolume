@@ -3,8 +3,8 @@ import digitalio
 
 dirPin = digitalio.DigitalInOut(board.D17)
 stepPin = digitalio.DigitalInOut(board.D18)
-dirPin.direction = digitalio.Durection.INPUT
-stepPin.direction = digitalio.Durection.INPUT
+dirPin.direction = digitalio.Direction.INPUT
+stepPin.direction = digitalio.Direction.INPUT
 
 dirPin.pull = digitalio.Pull.UP
 stepPin.pull = digitalio.Pull.UP
