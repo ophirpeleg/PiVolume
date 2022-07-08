@@ -1,8 +1,8 @@
 import board
 import digitalio
 
-dirPin = digitalio.DigitalInOut(board.GP17)
-stepPin = digitalio.DigitalInOut(board.GP18)
+dirPin = digitalio.DigitalInOut(board.D17)
+stepPin = digitalio.DigitalInOut(board.D18)
 dirPin.direction = digitalio.Durection.INPUT
 stepPin.direction = digitalio.Durection.INPUT
 
