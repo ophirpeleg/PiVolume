@@ -15,6 +15,8 @@ dirPin.pull = digitalio.Pull.UP
 stepPin.pull = digitalio.Pull.UP
 previousValue = True
 
+print("Welcome")
+
 while 1 == 1:
     if previousValue != stepPin.value:
         if stepPin.value == False:
