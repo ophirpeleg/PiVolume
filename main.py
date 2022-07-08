@@ -8,6 +8,7 @@ pushPin = digitalio.DigitalInOut(board.D8)
 stepPin = digitalio.DigitalInOut(board.D3)
 
 dirPin.direction = digitalio.Direction.INPUT
+pushPin.direction = digitalio.Direction.INPUT
 stepPin.direction = digitalio.Direction.INPUT
 volumeInterval = 50
 
