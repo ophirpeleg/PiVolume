@@ -18,11 +18,11 @@ previousValue = True
 
 print("Welcome")
 print(f"{stepPin.value} step pin value, {dirPin.value} dir pin value")
-print(f"push pin value: {pushPin}")
+print(f"push pin value: {pushPin.value}")
 is_on = True
 
 while is_on:
-    if pushPin == False:
+    if pushPin.value == False:
         print("False")
 
     if previousValue != stepPin.value:
