@@ -10,8 +10,10 @@ def millis():
 
 
 def long_press():
-    print("long press")
+    os.system(f"amixer -c 0 set Headphone 0")
 
+os.system(f"amixer -c 0 set Headphone unmute")
+mute = False
 
 dirPin = digitalio.DigitalInOut(board.D2)
 pushPin = digitalio.DigitalInOut(board.D17)
@@ -40,14 +42,14 @@ while is_on:
 
         while pushPin.value == 0:
             if millis() - pressTime > 1000 and not longPress:
-                print("longPress")
                 longPress = True
                 long_press()
 
         if not longPress:  # short press define
-            print("shortpress")
-
-
+            if mute:
+                os.system(f"amixer -c 0 set Headphone unmute")
+            else:
+                os.system(f"amixer -c 0 set Headphone mute")
 
     if previousValue != stepPin.value:
         if stepPin.value == False:
@@ -58,6 +60,3 @@ while is_on:
                 print("Left")
                 os.system(f"amixer -c 0 set Headphone {volumeInterval}-")
         previousValue = stepPin.value
-
-
-
