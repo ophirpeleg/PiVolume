@@ -3,9 +3,9 @@ import digitalio
 import os
 import os.path
 
-dirPin = digitalio.DigitalInOut(board.GP17)
+dirPin = digitalio.DigitalInOut(board.D17)
 # pushPin = digitalio.DigitalInOut(board.D16)
-stepPin = digitalio.DigitalInOut(board.GP18)
+stepPin = digitalio.DigitalInOut(board.D18)
 
 dirPin.direction = digitalio.Direction.INPUT
 stepPin.direction = digitalio.Direction.INPUT
@@ -19,7 +19,6 @@ print("Welcome")
 is_on = True
 
 while is_on:
-    print("Welcome1")
     if previousValue != stepPin.value:
         print("Welcome2")
         if stepPin.value == False:
