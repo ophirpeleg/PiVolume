@@ -10,9 +10,9 @@ import time
 
 print("== Pi Pico multifunction knob 1.0 ==")
 
-CLK_PIN = board.GP8
-DT_PIN = board.GP5
-SW_PIN = board.GP3
+CLK_PIN = board.D8
+DT_PIN = board.D5
+SW_PIN = board.D3
 clk_last = None
 count = 0
 totalMode = 3
