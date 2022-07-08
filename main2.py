@@ -2,11 +2,11 @@ import digitalio
 import board
 ## import usb_hid
 import time
-from adafruit_hid.keyboard import Keyboard
-from adafruit_hid.mouse import Mouse
-from adafruit_hid.keycode import Keycode
-from adafruit_hid.consumer_control import ConsumerControl
-from adafruit_hid.consumer_control_code import ConsumerControlCode
+# from adafruit_hid.keyboard import Keyboard
+# from adafruit_hid.mouse import Mouse
+# from adafruit_hid.keycode import Keycode
+# from adafruit_hid.consumer_control import ConsumerControl
+# from adafruit_hid.consumer_control_code import ConsumerControlCode
 
 print("== Pi Pico multifunction knob 1.0 ==")
 
