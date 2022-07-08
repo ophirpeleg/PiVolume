@@ -3,9 +3,9 @@ import digitalio
 import os
 import os.path
 
-dirPin = digitalio.DigitalInOut(board.D15)
-pushPin = digitalio.DigitalInOut(board.D16)
-stepPin = digitalio.DigitalInOut(board.D18)
+dirPin = digitalio.DigitalInOut(board.D8)
+# pushPin = digitalio.DigitalInOut(board.D16)
+stepPin = digitalio.DigitalInOut(board.D10)
 
 dirPin.direction = digitalio.Direction.INPUT
 stepPin.direction = digitalio.Direction.INPUT
