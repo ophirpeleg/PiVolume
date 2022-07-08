@@ -16,6 +16,8 @@ stepPin.pull = digitalio.Pull.UP
 previousValue = True
 
 print("Welcome")
+print(f"{stepPin.value} step pin value, {dirPin.value} dir pin value")
+
 is_on = True
 
 while is_on:
