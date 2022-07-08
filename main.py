@@ -10,7 +10,9 @@ def millis():
 
 
 def long_press():
+    os.system(f"amixer -c 0 set Headphone unmute")
     os.system(f"amixer -c 0 set Headphone 0")
+    return False
 
 os.system(f"amixer -c 0 set Headphone unmute")
 mute = False
@@ -43,7 +45,7 @@ while is_on:
         while pushPin.value == 0:
             if millis() - pressTime > 1000 and not longPress:
                 longPress = True
-                long_press()
+                mute = long_press()
 
         if not longPress:  # short press define
             if mute:
