@@ -12,7 +12,7 @@ previousValue = True
 
 while 1 == 1:
     if previousValue != stepPin.value:
-        if stepPin.value ==False:
+        if stepPin.value == False:
             if dirPin.value == False:
                 print("Left")
             else:
