@@ -4,7 +4,7 @@ import os
 import os.path
 
 dirPin = digitalio.DigitalInOut(board.D17)
-# pushPin = digitalio.DigitalInOut(board.D16)
+pushPin = digitalio.DigitalInOut(board.D16)
 stepPin = digitalio.DigitalInOut(board.D18)
 
 dirPin.direction = digitalio.Direction.INPUT
@@ -13,14 +13,18 @@ volumeInterval = 50
 
 dirPin.pull = digitalio.Pull.UP
 stepPin.pull = digitalio.Pull.UP
+pushPin.pull = digitalio.Pull.UP
 previousValue = True
 
 print("Welcome")
 print(f"{stepPin.value} step pin value, {dirPin.value} dir pin value")
-
+print(f"push pin value: {pushPin}")
 is_on = True
 
 while is_on:
+    if pushPin == False:
+        print("False")
+
     if previousValue != stepPin.value:
         print("Welcome2")
         if stepPin.value == False:
