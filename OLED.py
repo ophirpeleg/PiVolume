@@ -56,16 +56,16 @@ while True:
     Disk = subprocess.check_output(cmd, shell=True)
     cmd = "vcgencmd measure_temp |cut -f 2 -d '='"
     temp = subprocess.check_output(cmd, shell=True)
-    vol = """awk -F"[][]" '/Mono:/ { print $2 }' <(amixer -c 0 sget Headphone)"""
-    VOL = subprocess.check_output(vol, shell=True)
+#    vol = """awk -F"[][]" '/Mono:/ { print $2 }' <(amixer -c 0 sget Headphone)"""
+#    VOL = subprocess.check_output(vol, shell=True)
 
     # Pi Stats Display
-#     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
-#     draw.text((0, 16), str(CPU, 'utf-8') + "LA", font=font, fill=255)
-#     draw.text((80, 16), str(temp, 'utf-8'), font=font, fill=255)
-#     draw.text((0, 32), str(MemUsage, 'utf-8'), font=font, fill=255)
-#     draw.text((0, 48), str(Disk, 'utf-8'), font=font, fill=255)
-    draw.text((0, 0), "IP: " + str(VOL, 'utf-8'), font=font, fill=255)
+    draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
+    draw.text((0, 16), str(CPU, 'utf-8') + "LA", font=font, fill=255)
+    draw.text((80, 16), str(temp, 'utf-8'), font=font, fill=255)
+    draw.text((0, 32), str(MemUsage, 'utf-8'), font=font, fill=255)
+    draw.text((0, 48), str(Disk, 'utf-8'), font=font, fill=255)
+#    draw.text((0, 0), "IP: " + str(VOL, 'utf-8'), font=font, fill=255)
 
     # Display image
     oled.image(image)
