@@ -60,9 +60,10 @@ while True:
     temp = subprocess.check_output(cmd, shell=True)
     cmd = "awk -F\"[][]\" \'/Mono:/ { print $2 }\' <(amixer -c 0 sget Headphone)"
     print(cmd)
-    VOL = subprocess.check_output(cmd, shell=True)
-
-
+#     VOL = subprocess.check_output(cmd, shell=True)
+    VOL = os.system(cmd)
+    print(VOL)
+    
     # Pi Stats Display
 #     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
 #     draw.text((0, 16), str(CPU, 'utf-8') + "LA", font=font, fill=255)
