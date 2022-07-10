@@ -58,11 +58,9 @@ while True:
     Disk = subprocess.check_output(cmd, shell=True)
     cmd = "vcgencmd measure_temp |cut -f 2 -d '='"
     temp = subprocess.check_output(cmd, shell=True)
-#     cmd = "awk -F\"[][]\" \'/Mono:/ { print $2 }\' <(amixer -c 0 sget Headphone)"
-#     VOL = subprocess.check_output(cmd, shell=True)
-#     VOL = VOL[:2]
     cmd = "amixer -c 0 sget Headphone"
-    VOL = subprocess.check_output(cmd, shell=True)
+    VOL = str(subprocess.check_output(cmd, shell=True))
+    VOL = VOL[VOL.find("%") - 2:VOL.find("%")]
 
     # Pi Stats Display
 #     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
@@ -70,7 +68,7 @@ while True:
 #     draw.text((80, 16), str(temp, 'utf-8'), font=font, fill=255)
 #     draw.text((0, 32), str(MemUsage, 'utf-8'), font=font, fill=255)
 #     draw.text((0, 48), str(Disk, 'utf-8'), font=font, fill=255)
-    draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
+    draw.text((0, 0), "Volume: " + str(VOL), font=font, fill=255)
 
     # Display image
     oled.image(image)
