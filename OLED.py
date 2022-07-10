@@ -66,9 +66,9 @@ while True:
     MUTE = MUTE[-6:-4]
 
     if MUTE == "on":
-        mute = "on"
-    else:
         mute = "off"
+    else:
+        mute = "on"
 
     # Pi Stats Display
 #     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
@@ -77,7 +77,8 @@ while True:
 #     draw.text((0, 32), str(MemUsage, 'utf-8'), font=font, fill=255)
 #     draw.text((0, 48), str(Disk, 'utf-8'), font=font, fill=255)
     draw.text((0, 0), "Volume: " + str(VOL), font=font, fill=255)
-    draw.text((70, 0), "MUTE: " + str(mute), font=font, fill=255)
+    draw.text((70, 0), "Mute: " + str(mute), font=font, fill=255)
+
 
     # Display image
     oled.image(image)

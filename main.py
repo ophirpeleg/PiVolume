@@ -17,9 +17,9 @@ def long_press():
 os.system(f"amixer -c 0 set Headphone unmute")
 mute = False
 
-dirPin = digitalio.DigitalInOut(board.D2)
+dirPin = digitalio.DigitalInOut(board.D27)
 pushPin = digitalio.DigitalInOut(board.D17)
-stepPin = digitalio.DigitalInOut(board.D3)
+stepPin = digitalio.DigitalInOut(board.D22)
 
 dirPin.direction = digitalio.Direction.INPUT
 pushPin.direction = digitalio.Direction.INPUT
