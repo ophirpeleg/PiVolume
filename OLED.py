@@ -58,7 +58,7 @@ while True:
     Disk = subprocess.check_output(cmd, shell=True)
     cmd = "vcgencmd measure_temp |cut -f 2 -d '='"
     temp = subprocess.check_output(cmd, shell=True)
-    vol = ("awk -F'[][]' '/Mono:/ { print $2 }' <(amixer -c 0 sget Headphone)")
+    vol = "awk -F\"[][]\" \'/Mono:/ { print $2 }\' <(amixer -c 0 sget Headphone)"
     VOL = subprocess.check_output(vol, shell=True)
 
 
