@@ -61,6 +61,14 @@ while True:
     cmd = "amixer -c 0 sget Headphone"
     VOL = str(subprocess.check_output(cmd, shell=True))
     VOL = VOL[VOL.find("%") - 2:VOL.find("%")]
+    cmd = "amixer -c 0 sget Headphone"
+    MUTE = str(subprocess.check_output(cmd, shell=True))
+    MUTE = MUTE[-3:-2]
+
+    if MUTE == "on":
+        mute = False
+    else:
+        mute = True
 
     # Pi Stats Display
 #     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
@@ -69,6 +77,7 @@ while True:
 #     draw.text((0, 32), str(MemUsage, 'utf-8'), font=font, fill=255)
 #     draw.text((0, 48), str(Disk, 'utf-8'), font=font, fill=255)
     draw.text((0, 0), "Volume: " + str(VOL), font=font, fill=255)
+    draw.text((80, 0), "MUTE: " + str(mute), font=font, fill=255)
 
     # Display image
     oled.image(image)
