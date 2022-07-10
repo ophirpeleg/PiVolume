@@ -59,8 +59,10 @@ while True:
     cmd = "vcgencmd measure_temp |cut -f 2 -d '='"
     temp = subprocess.check_output(cmd, shell=True)
     cmd = "awk -F\"[][]\" \'/Mono:/ { print $2 }\' <(amixer -c 0 sget Headphone)"
-    VOL = subprocess.check_output(cmd, shell=True)
-
+#     VOL = subprocess.check_output(cmd, shell=True)
+    print(f"{cmd}, is the command")
+    VOL = os.system(cmd)
+    print(VOL)
 
     # Pi Stats Display
 #     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
