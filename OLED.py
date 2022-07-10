@@ -6,6 +6,8 @@ import time
 import board
 import busio
 import digitalio
+import os
+
 
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
@@ -57,7 +59,8 @@ while True:
     cmd = "vcgencmd measure_temp |cut -f 2 -d '='"
     temp = subprocess.check_output(cmd, shell=True)
     vol = """awk -F"[][]" '/Mono:/ { print $2 }' <(amixer -c 0 sget Headphone)"""
-    VOL = subprocess.check_output(vol, shell=True)
+    #VOL = subprocess.check_output(vol, shell=True)
+    VOL = os.system("""awk -F"[][]" '/Mono:/ { print $2 }' <(amixer -c 0 sget Headphone)""")
 
     # Pi Stats Display
 #     draw.text((0, 0), "IP: " + str(IP, 'utf-8'), font=font, fill=255)
